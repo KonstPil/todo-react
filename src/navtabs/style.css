@@ -1,0 +1,45 @@
+#navtab ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    z-index: 9;
+}
+
+#navtab li{
+    margin: 20px;
+}
+
+#navtab .circle{
+    position: absolute;
+    background: radial-gradient(black 80px, blue 150px);
+    width: 3000px;
+    height: 1000px;
+    border-radius: 50%;
+    top: -470px;
+    opacity: 0;
+    z-index: 5;
+    transition: opacity 0.2s linear;
+}
+
+#navtab{
+    position: relative;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    padding: 0;
+    background-color: blue;
+}
+
+#navtab a{
+    text-decoration: none;
+    color: yellow;
+    z-index: 9;
+}
+
+#navtab a.active{
+    background-color: yellow;
+    color: black;
+    z-index: 8;
+}
