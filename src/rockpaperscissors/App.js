@@ -2,9 +2,21 @@ import React from 'react';
 import Rock from './icons/Rock';
 import Paper from './icons/Paper';
 import Scissors from './icons/Scissors';
+import doesPlayerWin from './helpers';
+import variants from './config';
 import './App.css';
 
 export default function App() {
+  const getVariant = () =>{
+    return variants[Math.floor(Math.random() * variants.length)];
+  };
+
+  const game = (playersChoice) => {
+    let computersChoice = getVariant();
+
+    console.log(playersChoice, computersChoice, doesPlayerWin(playersChoice, computersChoice))
+  };
+
   return (
     <div className="app">
       {/* information goes here */}
@@ -26,7 +38,7 @@ export default function App() {
       </div>
 
       {/* the popup to show win/loss/draw */}
-      {/* <div className="game-state"></div> */}
+      {/* <div className="game-state win"></div> */}
 
       <div className="choices">
         {/* choices captions */}
@@ -36,13 +48,13 @@ export default function App() {
 
         {/* buttons for my choice */}
         <div>
-          <button className="rock">
+          <button onClick={()=>game('rock')} className="rock">
             <Rock />
           </button>
-          <button className="paper">
+          <button onClick={()=>game('paper')} className="paper">
             <Paper />
           </button>
-          <button className="scissors">
+          <button onClick={()=>game('scissors')} className="scissors">
             <Scissors />
           </button>
         </div>
