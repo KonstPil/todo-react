@@ -1,9 +1,11 @@
 import React from "react";
+import {drawComponents} from "../config";
 
-const Choice = ({drawComponent, classes, cb}) =>{
+const Choice = ({classes, cb}) =>{
+    console.log(drawComponents);
     return (
         <button onClick={()=>cb()} className={classes}>
-            {drawComponent}
+            {drawComponents[classes]}
         </button>
     );
 }

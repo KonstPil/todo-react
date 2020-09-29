@@ -1,4 +1,5 @@
-import React, { Fragment } from "react";
+import React from "react";
+import {drawComponents} from "../config";
 
 export default function Result ({result}) {
 
@@ -15,8 +16,10 @@ export default function Result ({result}) {
     return (
       <div>
         <div>{getStatus()}</div>
-        <div>player - {playersChoice}</div>
-        <div>computer - {computersChoice}</div>
+        <div id='result-blocks'>
+          <div className={'result-block'}>player - {playersChoice} {drawComponents[playersChoice]}</div>
+          <div className={'result-block'}>computer - {computersChoice} {drawComponents[computersChoice]}</div>
+        </div>
       </div>
     );
 }

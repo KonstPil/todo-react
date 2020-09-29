@@ -233,3 +233,13 @@ h6 {
   background: #fa65ff;
   color: #fdedfd;
 }
+
+#result-blocks {
+  display:"flex";
+  width: '300px';
+  justify-content: 'space-around';
+}
+
+.result-block {
+  flex-basis: 50%;
+}
