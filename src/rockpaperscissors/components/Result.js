@@ -1,24 +1,21 @@
 import React from "react";
-import {drawComponents} from "../config";
+import {getElByNum, getStatusByNum} from "../helpers";
 
 export default function Result ({result}) {
 
-  let {gameResult, playersChoice, computersChoice} = result;
-
-    const getStatus = () =>{
-      if(gameResult !== null){
-        return gameResult === 0 ? "Draw" : (gameResult === 1 ? "You won" : "Computer won");
-      } else {
-        return "";
-      }
-    }
-
+  let {gameResult, playersChoiceNum, computersChoiceNum} = result;
+  if(gameResult === null){
+    return null;
+  }
+  let status = getStatusByNum(gameResult);
+  let playersChoice = getElByNum(playersChoiceNum);
+  let computersChoice = getElByNum(computersChoiceNum);
     return (
-      <div>
-        <div>{getStatus()}</div>
-        <div id='result-blocks'>
-          <div className={'result-block'}>player - {playersChoice} {drawComponents[playersChoice]}</div>
-          <div className={'result-block'}>computer - {computersChoice} {drawComponents[computersChoice]}</div>
+      <div className={'result-container'}>
+        <div id="result" className={status.classes}>{status.info}</div>
+        <div id={'result-blocks'}>
+          <div className={'result-block'}>player - {playersChoice.name} {playersChoice.draw}</div>
+          <div className={'result-block'}>computer - {computersChoice.name} {computersChoice.draw}</div>
         </div>
       </div>
     );

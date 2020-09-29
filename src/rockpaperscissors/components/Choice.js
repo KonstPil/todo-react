@@ -1,11 +1,11 @@
 import React from "react";
-import {drawComponents} from "../config";
+import {getElByNum} from "../helpers";
 
-const Choice = ({classes, cb}) =>{
-    console.log(drawComponents);
+const Choice = ({id, cb}) =>{
+    let choice = getElByNum(id);
     return (
-        <button onClick={()=>cb()} className={classes}>
-            {drawComponents[classes]}
+        <button onClick={()=>cb()} className={choice.name}>
+            {choice.draw}
         </button>
     );
 }

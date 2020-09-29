@@ -10,9 +10,9 @@ const Game = ({gameCb})=>{
             <div>Computer</div>
         
             <div>
-                <Choice classes="rock" cb={gameCb.bind(null, 'rock')}/>
-                <Choice classes="paper" cb={gameCb.bind(null, 'paper')}/>
-                <Choice classes="scissors" cb={gameCb.bind(null, 'scissors')}/>
+                <Choice id={1} cb={gameCb.bind(null, 1)}/>
+                <Choice id={2} cb={gameCb.bind(null, 2)}/>
+                <Choice id={3} cb={gameCb.bind(null, 3)}/>
             </div>
 
             <div className="vs">vs</div>

@@ -234,10 +234,30 @@ h6 {
   color: #fdedfd;
 }
 
+.result-container {
+  margin-top: 20px;
+}
+
+#result {
+  text-align: center;
+  font-size: 25px;
+  color: gray;
+}
+
+#result.win {
+  color: green;
+}
+
+#result.lose {
+  color: red;
+}
+
+
+
 #result-blocks {
-  display:"flex";
-  width: '300px';
-  justify-content: 'space-around';
+  display:flex;
+  width: 300px;
+  justify-content: space-around
 }
 
 .result-block {

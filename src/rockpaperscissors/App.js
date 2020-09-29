@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import InfoBoard from "./components/InfoBoard";
 import './App.css';
-import {doesPlayerWin, getComputersChoice} from './helpers';
+import {getResult, getComputersChoice} from './helpers';
 import Game from './components/Game';
 import Result from "./components/Result";
 
@@ -13,24 +13,33 @@ export default function App() {
       computersChoice: null
   };
 
-  let [result, setResult] = useState(initialState);
+  let [userPoints,setUserPoints] = useState(0);
+  let [computerPoints, setComputerPoints] = useState(0);
+  let [game, setGame] = useState(initialState);
 
-  const game = (playersChoice) => {
-    let computersChoice = getComputersChoice();
-    let result = doesPlayerWin(playersChoice, computersChoice);
+  const playGame = (playersChoiceNum) => {
+    let computersChoiceNum = getComputersChoice();
+    let result = getResult(playersChoiceNum, computersChoiceNum);
 
-    setResult(() => setResult({
+    if(result > 0){
+      setUserPoints((userPoints)=> userPoints + 1);
+    } else if (result < 0){
+      setComputerPoints((computerPoints)=> computerPoints + 1);
+    }
+    
+    setGame(() => {
+      return {
       gameResult: result,
-      playersChoice,
-      computersChoice
-    }));
+      playersChoiceNum,
+      computersChoiceNum
+    }});
   };
 
   return (
     <div className="app">
-      <InfoBoard score={result.gameResult}/>
-      <Game gameCb = {game}/>
-      <Result result={result}/>
+      <InfoBoard userPoints={userPoints} computerPoints={computerPoints}/>
+      <Game gameCb = {playGame}/>
+      <Result result={game}/>
     </div>
   );
 }
