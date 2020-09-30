@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 import Pomodoro from "./pomodoro/pomodoro";
 import MarkDown from './markdown/markdown';
 import NavTab from "./navtabs/navtab";
+import MoveLink from "./movelink/App"
 import RockPaperScissors from "./rockpaperscissors/App";
 import './style.css';
 
@@ -23,6 +24,9 @@ const ProjectsLinks = () =>{
                 <Link to='/rockpaperscissors'>
                     <li>RockPaperScissors</li>
                 </Link>
+                <Link to='/movelink'>
+                    <li>MoveLink</li>
+                </Link>
             </ul>
         </div>
     )
@@ -38,6 +42,7 @@ export default function App() {
                     <Route path='/markdown' component={MarkDown}/>
                     <Route path='/navtab' component={NavTab}/>
                     <Route path='/rockpaperscissors' component={RockPaperScissors}/>
+                    <Route path='/movelink' component={MoveLink}/>
                 </Switch>
         </Router>
     );
