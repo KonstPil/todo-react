@@ -5,6 +5,7 @@ import MarkDown from './markdown/markdown';
 import NavTab from "./navtabs/navtab";
 import MoveLink from "./movelink/App"
 import RockPaperScissors from "./rockpaperscissors/App";
+import ImageGallery from "./infiniteimagegallery/App";
 import './style.css';
 
 const ProjectsLinks = () =>{
@@ -27,6 +28,9 @@ const ProjectsLinks = () =>{
                 <Link to='/movelink'>
                     <li>MoveLink</li>
                 </Link>
+                <Link to='/imagegallery'>
+                    <li>InfiniteImageGallery</li>
+                </Link>
             </ul>
         </div>
     )
@@ -43,6 +47,7 @@ export default function App() {
                     <Route path='/navtab' component={NavTab}/>
                     <Route path='/rockpaperscissors' component={RockPaperScissors}/>
                     <Route path='/movelink' component={MoveLink}/>
+                    <Route path='/imagegallery' component={ImageGallery}/>
                 </Switch>
         </Router>
     );
